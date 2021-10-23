@@ -10,6 +10,7 @@ module.exports = {
     title: "My First Gatsby Site",
   },
   plugins: [
+    
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
@@ -17,7 +18,14 @@ module.exports = {
       options: {
         name: `blog`,
         path: `${__dirname}/blog`,
-      }
-    },
-  ],
+      },
+      resolve: 'gatsby-source-wordpress',
+      options: {
+      url: 'https://csc496wordpress.tldr.dev/graphql',
+      protocol: 'https',
+      hostingWPCOM: 'false',
+      useACF: 'false',
+      },
+    }
+  ]
 };

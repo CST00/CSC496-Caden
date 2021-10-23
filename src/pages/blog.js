@@ -5,22 +5,25 @@ const BlogPage = ({data}) => {
   return (
     <Layout pageTitle="My Blog Posts">
           <ul>
-      {
-        data.allFile.nodes.map(node => (
-          <li key={node.name}>
-            {node.name}
-          </li>
-        ))
-      }
+          {data.allWpPost.edges.map(({ node }) => (
+        <div>
+          <p>{node.title}</p>
+          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        </div>
+      ))}
       </ul>
     </Layout>
   )
 }
-export const query = graphql`
+export const pageQuery = graphql`
   query {
-    allFile {
-      nodes {
-        name
+    allWpPost (sort: { fields: [date] } ) {
+      edges {
+          node{
+           title
+           excerpt
+           slug
+          }
       }
     }
   }
