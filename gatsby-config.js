@@ -9,6 +9,9 @@ module.exports = {
   plugins: []
 };
 module.exports = {
+  plugins: []
+};
+module.exports = {
   siteMetadata: {
     title: "My First Gatsby Site",
   },
