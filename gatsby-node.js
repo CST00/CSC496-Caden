@@ -11,7 +11,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const allPokemon = await getPokemonData(["mew", "ditto", "squirtle"])
   createPage({
     path: `/pokemon`,
-    component: require.resolve("./src/pages/pokemon0-list.js"),
+    component: require.resolve("./src/Components/pokemonbrowser.js"),
     context: { allPokemon },
   })
 }
