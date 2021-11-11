@@ -8,7 +8,7 @@ const getPokemonData = names =>
     })
   )
 exports.createPages = async ({ actions: { createPage } }) => {
-  const allPokemon = await getPokemonData(["mew", "ditto", "squirtle"])
+  const allPokemon = await getPokemonData([1])
   createPage({
     path: `/pokemon`,
     component: require.resolve("./src/Components/pokemonbrowser.js"),

@@ -8,7 +8,7 @@ const BlogPage = ({data}) => {
           {data.allWpPost.edges.map(({ node }) => (
         <div>
           <p>{node.title}</p>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          <div dangerouslySetInnerHTML={{ __html: node.allWpPost }} />
         </div>
       ))}
       </ul>
