@@ -29,5 +29,11 @@
     font-weight: 700;
     margin: 3rem 0;
   }
-
+.sdiv{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  
+}
   

@@ -22,6 +22,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     'gatsby-plugin-styled-components',
     'react-darkmode-toggler',
+    'framer-motion',
     {
       resolve: "gatsby-source-filesystem",
       options: {

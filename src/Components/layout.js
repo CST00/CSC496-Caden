@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { Link, useStaticQuery,graphql } from 'gatsby'
+import { motion} from "framer-motion"
+
 import {
   container,
   heading,
@@ -11,7 +13,7 @@ import {
 } from './layout.module.css'
 
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ pageTitle, children, path}) => {
   const [dark,darkmodetoggle] = useState(true)
 
   const data = useStaticQuery(graphql`
@@ -24,12 +26,12 @@ const Layout = ({ pageTitle, children }) => {
   }
 `)
   return (
-    
     <div className={container}>
-      
+
       <title>{pageTitle} | {data.site.siteMetadata.title}</title>
       <header className={siteTitle}>{data.site.siteMetadata.title}</header>
-      <nav>
+      <nav path = {path}>
+      
         <ul className={navLinks}>
           <li className={navLinkItem}>
             <Link to="/" className={navLinkText}>
@@ -60,15 +62,28 @@ const Layout = ({ pageTitle, children }) => {
           
 
         </ul>
+        
       </nav>
-      <main>
-        <h1 className={heading}>{pageTitle}</h1>
+      <motion.main
+        key={path}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          type: "spring",
+          mass: 0.35,
+          stiffness: 75,
+          duration: 1,
+        }}
+      >
         {children}
-      </main>
+      </motion.main>
+      <footer />
+
+
+     
       
-    </div>
-    
-    
+    </div> 
   )
 }
 
